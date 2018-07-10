@@ -7,7 +7,9 @@
         "open:src": "babel-node buildScripts/srcServer.js",
         "security-check": "nsp check",
         "localtunnel": "lt --port 3000",
-        "start": "npm-run-all --parallel security-check open:src",
+        "lint": "esw webpack.config.* src buildScripts --color",
+        "lint:watch": "npm run lint -- --watch",
+        "start": "npm-run-all --parallel security-check open:src lint:watch",
         "share": "npm-run-all --parallel open:src localtunnel"
     },
     "author": "Pablo Hernandez",
